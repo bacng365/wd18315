@@ -45,3 +45,4 @@ Route::get('get-product/{id}/{name?}', [ProductController::class, 'getProduct'])
 // Route: http://127.0.0.1:8000/get-product?id=3&name=iphone
 Route::get('update-product', [ProductController::class, 'updateProduct']);
 Route::get('thongtinsv', [SinhVienController::class, 'index']);
+Route::get('query-builder', [ProductController::class, 'queryBuilder']);
