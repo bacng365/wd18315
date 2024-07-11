@@ -90,16 +90,18 @@ class ProductController extends Controller
         //     'created_at' => Carbon::now(),
         //     'updated_at' => Carbon::now(),
         // ]);
-        $newIdUser = DB::table('users')->insertGetId([
-            'name' => 'huy3',
-            'email' => 'huyng13@gmail.com',
-            'phongban_id' => 1,
-            'songaynghi' => 12,
-            'tuoi' => 20,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-        $newUserInfo = DB::table('users')->find($newIdUser);
+        // $newIdUser = DB::table('users')->insertGetId([
+        //     'name' => 'huy3',
+        //     'email' => 'huyng13@gmail.com',
+        //     'phongban_id' => 1,
+        //     'songaynghi' => 12,
+        //     'tuoi' => 20,
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
+        // $newUserInfo = DB::table('users')->find($newIdUser);
+        $question10 = DB::table('users')->groupBy('phongban_id')->get();
+        dd($question10);
 
         // 14. Thêm chữ 'PĐT' sau tên tất cả user ở phòng ban 'Ban đào tạo'
         $userNames = DB::table('users')->where('phongban_id', $idPhongDaoTao)->get();

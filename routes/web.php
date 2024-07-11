@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SinhVienController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,3 +47,20 @@ Route::get('get-product/{id}/{name?}', [ProductController::class, 'getProduct'])
 Route::get('update-product', [ProductController::class, 'updateProduct']);
 Route::get('thongtinsv', [SinhVienController::class, 'index']);
 Route::get('query-builder', [ProductController::class, 'queryBuilder']);
+
+
+// CRUD bảng users
+// BASE_URL
+// Route: http://127.0.0.1:8000/users/list-users
+// Route: http://127.0.0.1:8000/users/add-users
+// Route: http://127.0.0.1:8000/users/update-users
+// Route: http://127.0.0.1:8000/users/delete-users
+
+Route::group(['prefix' => 'users', 'as' => 'users.'], function() {
+    Route::get('list-user', [UserController::class, 'listUsers'])->name('listUsers');
+    Route::get('add-user', [UserController::class, 'addUsers'])->name('addUsers');
+    Route::post('add-user', [UserController::class, 'addPostUsers'])->name('addPostUsers');
+    Route::get('delete-user/{idUser}', [UserController::class, 'deleteUsers'])->name('deleteUsers');
+    Route::get('eidt-user/{idUser}', [UserController::class, 'editUsers'])->name('editUsers');
+    Route::put('eidt-user/{idUser}', [UserController::class, 'editPutUsers'])->name('editPutUsers');
+});
