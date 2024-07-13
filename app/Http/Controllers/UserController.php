@@ -18,8 +18,6 @@ class UserController extends Controller
         return view('users.list-user')->with([
             'listUsers' => $data
         ]);
-
-        
     }
 
     public function addUsers() {

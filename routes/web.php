@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Lab2\ProductController as Lab2ProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SinhVienController;
 use App\Http\Controllers\UserController;
@@ -63,4 +64,16 @@ Route::group(['prefix' => 'users', 'as' => 'users.'], function() {
     Route::get('delete-user/{idUser}', [UserController::class, 'deleteUsers'])->name('deleteUsers');
     Route::get('eidt-user/{idUser}', [UserController::class, 'editUsers'])->name('editUsers');
     Route::put('eidt-user/{idUser}', [UserController::class, 'editPutUsers'])->name('editPutUsers');
+});
+
+
+Route::group(['prefix' => 'products', 'as' => 'products.'], function() {
+    Route::get('list-product', [Lab2ProductController::class, 'listProducts'])->name('listProducts');
+    Route::get('add-product', [Lab2ProductController::class, 'addProducts'])->name('addProducts');
+    Route::post('add-product', [Lab2ProductController::class, 'addPostProducts'])->name('addPostProducts');
+    Route::get('edit-product/{idProduct}', [Lab2ProductController::class, 'editProducts'])->name('editProducts');
+    Route::put('eidt-product/{idProduct}', [Lab2ProductController::class, 'editPutProducts'])->name('editPutProducts');
+    // Route::get('delete-product/{idProduct}', [Lab2ProductController::class, 'deleteProducts'])->name('deleteProducts');
+    Route::delete('delete-product', [Lab2ProductController::class, 'deleteProducts'])->name('deleteProducts');
+    Route::get('search-product', [Lab2ProductController::class, 'searchProduct'])->name('searchProduct');
 });
