@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100px;
+    width: 100%;
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sidebar {
+    height: 100vh;
+}
+.layer span::after{
+    content: '>>';
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.layer span:last-child::after {
+    content: '';
+}
