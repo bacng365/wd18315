@@ -13,10 +13,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id'); // integer | unsigned | primary key | auto increment
-            $table->string('name', 200);
-            $table->float('price', 8, 2);
-            $table->integer('view');
+            $table->increments('product_id'); // integer | unsigned | primary key | auto increment
+            $table->string('name', 20);
+            $table->string('description', 500);
+            $table->float('price', 10, 2)->default(800.02);
             $table->timestamps();
         });
     }

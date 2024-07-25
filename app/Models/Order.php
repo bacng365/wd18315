@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Order extends Model
 {
     use HasFactory;
-
-    protected $table = 'products';
-    public $primaryKey = 'product_id'; 
+    protected $table = 'orders';
+    public $primaryKey = 'order_id'; // Mặc định là id nên không cần khai báo
     public $incrementing = true;
 
     protected $fillable = [
-        'name',
-        'description',
-        'price',
+        'user_id',
+        'totalPrice',
     ];
 }
