@@ -19,12 +19,12 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->word(),
-            'email' => Str::random(10),
+            'email' => $this->faker->email,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
             'address' => fake()->sentence(),
             'phone' => fake()->phoneNumber(),
+            'role' => '1',
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime
         ];

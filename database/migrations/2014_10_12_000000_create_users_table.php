@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             // $table->id(); 
-            $table->increments('user_id'); // id không âm
+            $table->increments('id'); // id không âm
             $table->string('name', 20);
             $table->string('email', 30)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 100);
-            $table->string('remember_token', 100);
+            // $table->string('remember_token', 100)->nullable();
+            $table->rememberToken();
             $table->string('address', 100)->nullable();
             $table->string('phone', 20)->nullable();
+            $table->enum('role', ['1', '2'])->default('2')->comment('1: Admin, 2: User');
             $table->timestamps();
         });
     }
@@ -30,6 +32,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Schema::table('users', function(Blueprint $table) {
+        //     $table->dropColumn(['role']);
+        // });
         Schema::dropIfExists('users');
     }
 };
