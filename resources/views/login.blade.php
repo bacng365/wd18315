@@ -21,11 +21,17 @@
             @csrf
             <div>
                 Email:
-                <input type="text" name="email" class="form-control">
+                <input type="text" name="email" class="form-control" value="{{ old('email') }}">
+                @error('email')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div>
                 Password:
                 <input type="password" name="password" class="form-control">
+                @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div>

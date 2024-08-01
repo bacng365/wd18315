@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserLoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\FuncCall;
@@ -43,7 +44,18 @@ class AuthenController extends Controller
         return view('login');
     }
 
-    public function postLogin(Request $request) {
+    public function postLogin(UserLoginRequest $request) {
+        // $request->validate([
+        //     'email' => 'required|email|exists:users,email',
+        //     'password' => 'required|min:6'
+        // ], [
+        //     'email.required' => 'Không được để trống email',
+        //     'email.email' => 'Email không đúng định dạng',
+        //     'email.exists' => 'Email chưa được đăng ký',
+        //     'password.required' => 'Không được để trống email',
+        //     'password.min' => 'Mật khẩu tối thiểu 6 ký tự'
+        // ]);
+
         $remember = $request->has('remember');
         if (Auth::attempt(['email' => $request->email,'password' => $request->password], $remember)) {
             // Logout hết các tài khoản khác
