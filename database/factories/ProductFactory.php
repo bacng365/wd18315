@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,8 +21,10 @@ class ProductFactory extends Factory
             'name' => $this->faker->word,
             'price' => $this->faker->randomFloat(2, 100, 1000),
             'image' => $this->faker->imageUrl,
+            'description' => $this->faker->sentence,
+            'category_id' => Category::all()->random()->id,
             'created_at' => $this->faker->dateTime,
-            'updated_at' => $this->faker->dateTime
+            'updated_at' => $this->faker->dateTime,
         ];
 
         // protected $fillable = [

@@ -15,7 +15,7 @@ return new class extends Migration
             // $table->id(); 
             $table->increments('id'); // id không âm
             $table->string('name', 20);
-            $table->string('email', 30)->unique();
+            $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 100);
             // $table->string('remember_token', 100)->nullable();

@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('name');
             $table->double('price', 8, 2);
             $table->string('image', 500)->nullable();
+            $table->string('description')->nullable();
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
